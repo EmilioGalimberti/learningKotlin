@@ -21,16 +21,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.607" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintGuide_begin="205dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
-
     <ImageView
         android:id="@+id/dice_image"
         android:layout_width="wrap_content"
@@ -41,7 +31,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.343"
-        app:srcCompat="@drawable/dice_1" />
+        android:src="@drawable/empty_dice"
+        tools:src="@drawable/dice_1"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
