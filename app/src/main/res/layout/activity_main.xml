@@ -31,8 +31,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.343"
-        android:src="@drawable/empty_dice"
+        app:srcCompat="@drawable/empty_dice"
         tools:src="@drawable/dice_1"/>
+        <!-- app:srcCompat permite que versiones anteriores de api puedan ver las imagenes que serian los vectores usando androidX-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
