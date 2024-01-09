@@ -5,18 +5,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.example.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    private val myName: MyName = MyName("emi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        binding.myName = myName
 
         //findViewById<Button>(R.id.done_button).setOnClickListener { addNickname(it) }
         binding.doneButton.setOnClickListener { addNickname(it) }
@@ -31,16 +32,17 @@ class MainActivity : AppCompatActivity() {
         En este caso, binding.apply se utiliza para aplicar una serie de operaciones en el objeto binding.
          */
         binding.apply {
-        binding.nicknameText.text = binding.nicknameEdit.text
+        //binding.nicknameText.text = binding.nicknameEdit.text
         /*
         invalidateAll(): Esta función se usa para indicar al sistema de enlace de datos que debe invalidar todas las asignaciones y forzar una actualización de la interfaz de usuario.
         En el contexto de Android Data Binding, invalidateAll() es comúnmente usado para notificar a la interfaz de usuario que los datos subyacentes han cambiado y que debe volver a evaluar
         todas las expresiones de enlace.
          */
-        invalidateAll()
-        binding.nicknameEdit.visibility = View.GONE
-        binding.doneButton.visibility = View.GONE
-        binding.nicknameText.visibility = View.VISIBLE
+            myName?.nickname = nicknameEdit.text.toString()
+            invalidateAll()
+            binding.nicknameEdit.visibility = View.GONE
+            binding.doneButton.visibility = View.GONE
+            binding.nicknameText.visibility = View.VISIBLE
         }
         //hide the keyboard
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
